@@ -7,9 +7,6 @@
  */
 
 /*
- * TODO: Create a public class named CrossbodyBag which is a subclass of Bag
- *       In addition to the attributes in Bag, the CrossbodyBag should have an
- *       attribute named "numberOfStraps".
  *
  *       The constructor for CrossbodyBag should take the following parameters
  *       in order:
@@ -30,3 +27,54 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+
+public class CrossbodyBag extends Bag {
+
+    private int numberOfStraps;
+
+    /**
+     * Creates a new CrossbodyBag with the given color, capacity and the number of
+     * straps.
+     *
+     * @param color the color of this bag instance.
+     * @param capacity the capacity of this bag instance.
+     */
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        /**
+         * This is how we call the parent's constructor
+         * The Python equivalent is super().__init__(...)
+         */
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    /**
+     * Gets the number of straps of this Bag instance.
+     *
+     * @return an int representing the number of straps of this Bag instance.
+     */
+    public int getNumberOfStraps() {
+        return this.numberOfStraps;
+    }
+
+    /**
+     * Return the details of this Bag.
+     *
+     * @return a String object representing the details of this Bag instance.
+     */
+    @Override
+    public String toString() {
+        return this.getColor() + " Crossbody Bag with " + this.numberOfStraps
+                + " straps (" + this.getNumberOfContents() + " / " +
+                this.getCapacity() + ")";
+    }
+
+    /**
+     * Increase the capacity of this bag by 2.
+     */
+    @Override
+    public void enhance() {
+        super.increaseCapacity(2);
+    }
+
+}
